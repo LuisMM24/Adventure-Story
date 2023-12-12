@@ -6,6 +6,7 @@ const config: Config = {
         fontFamily: {
             Poppins: ["var(--font-poppins)"],
             Digitalt: ["var(--font-digitalt)"],
+            Manrope: ["var(--font-manrope)"],
         },
         extend: {
             colors: {
