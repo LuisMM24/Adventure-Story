@@ -6,9 +6,9 @@ export const Button = (props: PropsWithChildren<Props>) => {
   return (
     <button
       onClick={props.onClick}
-      className="rounded-[20px] px-[72px] py-[12px] w-button h-button shadow-button  bg-white text-xl text-white relative"
+      className="rounded-[10px] w-button h-button shadow-button  bg-white text-xl text-white relative"
     >
-      <div className="rounded-[20px] px-[72px] py-[12px] bg-button shadow-inner-button w-inner-button h-inner-button absolute top-[2px] right-[2px] font-Digitalt">
+      <div className="rounded-[8px] bg-button shadow-inner-button w-inner-button h-inner-button absolute top-[3px] right-[3px] font-Digitalt flex items-center justify-center">
         {props.children}
       </div>
     </button>
