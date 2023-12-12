@@ -5,7 +5,18 @@ const userDataLocalStorageKey = "userData";
 
 const initialState: UserType = {
     name: "Loading...",
-    messages: [],
+    jungleStory: {
+        levels: [
+            { id: 1, message: null, success: false },
+            { id: 2, message: null, success: false },
+            { id: 3, message: null, success: false },
+            { id: 4, message: null, success: false },
+            { id: 5, message: null, success: false },
+            { id: 6, message: null, success: false },
+            { id: 7, message: null, success: false },
+            { id: 8, message: null, success: false },
+        ],
+    },
 };
 
 const UserContext = createContext<{ user: UserType; dispatch: React.Dispatch<UserReducerAction> } | undefined>(undefined);
