@@ -1,19 +1,19 @@
 import ContentContainer from "@/components/ContentContainer";
+import { Button } from "@/components/Button";
 import Link from "next/link";
+import Image from "next/image";
+import Logo from "@/assets/images/Logo.svg";
+import { Loading } from "@/components/Loading";
 
 export default function Home() {
-    return (
-        <div className="text-center">
-            <h2 className="text-primary text-headline  font-normal mb-4px font-Poppins">Welcome to your</h2>
-            <h1 className="text-primary text-title leading-none  font-medium mb-26px font-Digitalt">
-                Adventure
-                <br />
-                Story
-            </h1>
-
-            <Link href="/stories">
-                <button className="bg-secondary px-72px py-12px rounded-20px text-xl shadow-button outline outline-white outline-2 bg-button text-white">Start</button>
-            </Link>
-        </div>
-    );
+  return (
+    <ContentContainer className="bg-forest bg-cover bg-center">
+      <div className="flex items-center flex-col justify-center h-screen gap-[40px]">
+        <Image src={Logo} alt="logo" width={555} height={244} />
+        <Link href="/stories">
+          <Button> Start</Button>
+        </Link>
+      </div>
+    </ContentContainer>
+  );
 }
