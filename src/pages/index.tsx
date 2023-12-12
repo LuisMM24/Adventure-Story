@@ -1,31 +1,18 @@
-import TextField from "@/components/TextField";
-import UploadField from "@/components/UploadField";
-import { useChat } from "ai/react";
-import { useState } from "react";
-
 export default function Home() {
-  const { messages, input, handleSubmit, handleInputChange } = useChat({
-    api: "/api/chat/story",
-  });
-
   return (
-    <div className="text-blue-100">
-      {messages.map((m) => (
-        <div key={m.id} className="whitespace-pre-wrap">
-          {m.role === "user" ? "User: " : "AI: "}
-          {m.content}
-        </div>
-      ))}
+    <div className="text-center">
+      <h2 className="text-primary text-headline  font-normal mb-4px font-Poppins">
+        Welcome to your
+      </h2>
+      <h1 className="text-primary text-title leading-none  font-medium mb-26px">
+        Adventure
+        <br />
+        Story
+      </h1>
 
-      <form onSubmit={handleSubmit}>
-        <TextField
-          name="message"
-          placeholder="Type your message here..."
-          value={input}
-          handleInputChange={handleInputChange}
-        />
-      </form>
-      <UploadField />
+      <button className="bg-secondary px-72px py-12px rounded-20px text-xl shadow-button outline outline-white outline-2 bg-button text-white">
+        Start
+      </button>
     </div>
   );
 }
