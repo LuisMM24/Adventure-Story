@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 
 import localFont from "next/font/local";
 import { Poppins } from "next/font/google";
+import ContentContainer from "@/components/ContentContainer";
 
 const digitalt = localFont({ src: "../fonts/Digitalt.ttf", variable: "--font-digitalt" });
 const poppins = Poppins({
@@ -13,8 +14,10 @@ const poppins = Poppins({
 
 export default function App({ Component, pageProps }: AppProps) {
     return (
-        <main className={`${poppins.variable} ${digitalt.variable}`}>
-            <Component {...pageProps} />
-        </main>
+        <ContentContainer>
+            <main className={`${poppins.variable} ${digitalt.variable}`}>
+                <Component {...pageProps} />
+            </main>
+        </ContentContainer>
     );
 }
