@@ -32,7 +32,14 @@ function Chat(props: Props) {
             if (router.isReady && !existingMessage) {
                 // Only for 1st level! Add other append methods via switch statement
                 // TODO: Add append message logic for other levels
-                append({ role: "assistant", content: "Create a story about finding a hidden treasure in a jungle. Remember to stop generating after posing a challenge!" });
+                switch (levelId) {
+                    case 1: {
+                        append({ role: "assistant", content: "Create a story about finding a hidden treasure in a jungle. Remember to stop generating after posing a challenge!" });
+                    }
+                    default: {
+                        console.log("No AI logic for level defined.");
+                    }
+                }
             }
         };
     }, [router.isReady]);
