@@ -24,10 +24,6 @@ export default async function handler(req: Request) {
                     role: "assistant",
                     content: "Ok I will do that.",
                 },
-                {
-                    role: "user",
-                    content: "Create a story about finding a hidden treasure in a jungle. Remember to stop generating after posing a challenge!",
-                },
                 ...messages,
             ],
         });

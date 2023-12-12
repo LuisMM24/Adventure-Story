@@ -1,13 +1,22 @@
 import TextField from "@/components/TextField";
 import UploadField from "@/components/UploadField";
 import { useChat } from "ai/react";
-import React from "react";
+import React, { useEffect } from "react";
 
 type Props = {};
 
 function Chat(props: Props) {
-    const { messages, input, handleSubmit, handleInputChange } = useChat({
+    const { messages, input, handleSubmit, handleInputChange, append } = useChat({
         api: "/api/chat/story",
+        onResponse(response) {
+            console.log(response);
+        },
+    });
+
+    useEffect(() => {
+        return () => {
+            append({ role: "assistant", content: "Create a story about finding a hidden treasure in a jungle. Remember to stop generating after posing a challenge!" });
+        };
     });
 
     return (
