@@ -3,13 +3,16 @@ import type { Config } from "tailwindcss";
 const config: Config = {
     content: ["./src/pages/**/*.{js,ts,jsx,tsx,mdx}", "./src/components/**/*.{js,ts,jsx,tsx,mdx}", "./src/app/**/*.{js,ts,jsx,tsx,mdx}"],
     theme: {
+        fontFamily: {
+            Poppins: ["var(--font-poppins)"],
+        },
         extend: {
             colors: {
                 primary: "#000000",
                 secondary: "#A9A9A9",
             },
             boxShadow: {
-                button: "0px 4px 0px 0px #C0C0C0",
+                button: "0px 12px 0px 0px #C0C0C0",
             },
             fontSize: {
                 title: "96px",
@@ -18,6 +21,16 @@ const config: Config = {
             margin: {
                 "4px": "4px",
                 "26px": "26px",
+            },
+            padding: {
+                "12px": "12px",
+                "72px": "72px",
+            },
+            borderRadius: {
+                "20px": "20px",
+            },
+            backgroundImage: {
+                button: "linear-gradient(230deg, rgba(154,154,154,1) 50%, rgba(169,169,169,1) 50%)",
             },
         },
     },
