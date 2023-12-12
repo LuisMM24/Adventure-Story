@@ -4,7 +4,7 @@ export default function Home() {
       <h2 className="text-primary text-headline  font-normal mb-4px font-Poppins">
         Welcome to your
       </h2>
-      <h1 className="text-primary text-title leading-none  font-medium mb-26px">
+      <h1 className="text-primary text-title leading-none  font-medium mb-26px font-Digitalt">
         Adventure
         <br />
         Story

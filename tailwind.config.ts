@@ -5,6 +5,7 @@ const config: Config = {
     theme: {
         fontFamily: {
             Poppins: ["var(--font-poppins)"],
+            Digitalt: ["var(--font-digitalt)"],
         },
         extend: {
             colors: {
