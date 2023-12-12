@@ -9,7 +9,7 @@ export default function Home() {
   });
 
   return (
-    <div>
+    <div className="text-blue-100">
       {messages.map((m) => (
         <div key={m.id} className="whitespace-pre-wrap">
           {m.role === "user" ? "User: " : "AI: "}
