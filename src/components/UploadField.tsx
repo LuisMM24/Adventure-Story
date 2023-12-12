@@ -1,31 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
+import { ReaderService } from "@/utils/reader";
+import { useHandleImageFile } from "@/hooks/useHandleImageFile";
 type Props = {};
 
 function UploadField({}: Props) {
-  const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
+  const { handleImageFile } = useHandleImageFile();
 
-        reader.onload = async (event) => {
-          if (event.target && typeof event.target.result === "string") {
-            const fileData = event.target.result;
-
-            const response = await axios.post(
-              "/api/chat/image",
-              JSON.stringify(fileData)
-            );
-
-            console.log("file upload response", response);
-          }
-        };
-
-        reader.readAsDataURL(file);
-      }
-    }
-  };
   return (
     <>
       <label htmlFor="file">Take a picture</label>
@@ -34,7 +15,7 @@ function UploadField({}: Props) {
         type="file"
         name="file"
         accept="image/*"
-        onChange={handleUpload}
+        onChange={handleImageFile}
         style={{ visibility: "hidden" }}
         className="invisible"
       />
