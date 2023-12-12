@@ -1,5 +1,5 @@
 import { OpenAIStream, StreamingTextResponse } from "ai";
-import openAI from "@/utils/openai";
+import { openAI } from "@/utils/openai";
 
 export const runtime = "edge";
 
