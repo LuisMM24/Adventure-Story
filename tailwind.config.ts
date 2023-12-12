@@ -17,18 +17,19 @@ const config: Config = {
         primary: "#000000",
         secondary: "#A9A9A9",
         lightGray: "#D9D9D9",
+        "text-orange": "#F7AC1E",
       },
       boxShadow: {
-        button: "0px 4px 0px 0px #C0C0C0",
-        "inner-button": "0px 6px 0px 0px #C0C0C0",
+        button: "0px 2px 0px 0px rgba(0, 0, 0, 0.15)",
+        "inner-button": "0px 6px 0px 0px #4EC307",
       },
       width: {
-        button: "202px",
-        "inner-button": "197px",
+        button: "92px",
+        "inner-button": "86px",
       },
       height: {
-        button: "56px",
-        "inner-button": "46px",
+        button: "48px",
+        "inner-button": "36px",
       },
       fontSize: {
         title: "96px",
@@ -37,7 +38,8 @@ const config: Config = {
       },
       backgroundImage: {
         button:
-          "linear-gradient(230deg, rgba(154,154,154,1) 50%, rgba(169,169,169,1) 50%)",
+          "linear-gradient(230deg, rgba(103,235,0,1) 50%, rgba(166,242,8,1) 50%)",
+        forest: "url('../assets/images/forest.png')",
       },
     },
   },
