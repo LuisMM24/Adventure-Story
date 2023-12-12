@@ -1,14 +1,14 @@
 export default function Home() {
     return (
-        <div>
-            <h2 className="text-primary text-headline text-center font-normal mb-4px">Welcome to your</h2>
-            <h1 className="text-primary text-title leading-none text-center font-medium mb-26px">
+        <div className="text-center">
+            <h2 className="text-primary text-headline  font-normal mb-4px font-Poppins">Welcome to your</h2>
+            <h1 className="text-primary text-title leading-none  font-medium mb-26px">
                 Adventure
                 <br />
                 Story
             </h1>
 
-            <button>Start</button>
+            <button className="bg-secondary px-72px py-12px rounded-20px text-xl shadow-button outline outline-white outline-2 bg-button text-white">Start</button>
         </div>
     );
 }
