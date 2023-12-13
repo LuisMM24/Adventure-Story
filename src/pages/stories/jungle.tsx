@@ -29,12 +29,12 @@ const levels: Level[] = [
 function Jungle(props: Props) {
   return (
     <ContentContainer
-      gapSpacing="gap-[100px]"
+      gapSpacing="gap-[50px]"
       parentClassName="bg-blurry-temple bg-cover"
     >
       <ElDoradoTitleSVG />
       <div className="relative flex justify-center items-center">
-        <ElDoradoMapSVG className="w-[90vw]" />
+        <ElDoradoMapSVG className="w-[80vw]" />
         {levels.map((level, index) => {
           return <Level key={index} {...level} />;
         })}
