@@ -1,5 +1,5 @@
 import { useUser } from "@/context/userReducer";
-import { useChat } from "ai/react";
+import { Message, useChat } from "ai/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
@@ -11,57 +11,65 @@ function Chat(props: Props) {
     const levelId = Number(router.query.level_id);
 
     const { user, dispatch } = useUser();
+
     const currentLevel = user.jungleStory.levels.find((i) => i.id === levelId);
-    const existingMessage = currentLevel?.message;
+    const currentLevelAIMessage = currentLevel?.aiMessage;
+    const lastLevel = user.jungleStory.levels.find((i) => i.id === levelId - 1);
+
+    const messageHistory = user.jungleStory.levels
+        .map((i) => [i.aiMessage, i.answerMessage])
+        .flat()
+        .filter(Boolean) as Message[];
 
     const { messages, append } = useChat({
         api: "/api/story/start",
-        initialMessages: existingMessage ? [existingMessage] : undefined,
-        onResponse(response) {
-            console.log(response);
-        },
+        initialMessages: messageHistory.slice(0, -1),
         onFinish(message) {
-            // Add message to current level via dispatch
-            const updatedLevels = [...user.jungleStory.levels.filter((i) => i.id !== levelId), { id: levelId, message: message, answer: null, success: false }];
+            // Add message to current level state
+            const updatedLevels = [...user.jungleStory.levels.filter((i) => i.id !== levelId), { id: levelId, aiMessage: message, answerMessage: null, success: false }].sort((a, b) => a.id - b.id);
             dispatch({ type: "SET_USER", userData: { name: user.name, jungleStory: { levels: updatedLevels } } });
         },
     });
 
     useEffect(() => {
-        return () => {
-            console.log("useEffect");
-            if (router.isReady && !existingMessage) {
-                // Only for 1st level! Add other append methods via switch statement
-                // TODO: Add append message logic for other levels
-                switch (levelId) {
-                    case 1: {
-                        append({ id: "1", role: "assistant", content: "Create a story about finding a hidden treasure in a jungle. Remember to stop generating after posing a challenge!" });
+        if (levelId && !currentLevelAIMessage) {
+            console.log(`Request for level: ${levelId}`);
+            // TODO: Add append message logic for other levels
+            switch (levelId) {
+                case 1: {
+                    append({ id: `${levelId}`, role: "user", content: "Create a story about finding a hidden treasure in a jungle. Remember to stop generating after posing a challenge!" });
+                    break;
+                }
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6: {
+                    if (lastLevel?.answerMessage) {
+                        append(lastLevel?.answerMessage);
                     }
-                    default: {
-                        console.log("No AI logic for level defined.");
-                    }
+
+                    break;
+                }
+                default: {
+                    console.log("No AI logic for level defined.");
+                    break;
                 }
             }
+        }
+
+        return () => {
+            // Cleanup logic here
         };
-    }, [router.isReady]);
+    }, [levelId]);
 
     return (
         <div>
             <p>Level ID is {levelId}</p>
 
-            {messages.map((item, index) => {
-                if (item.id === "1") {
-                    return;
-                }
+            <p>{currentLevelAIMessage ? currentLevelAIMessage.content : messages.length > 0 && messages[messages.length - 1].content}</p>
 
-                return (
-                    <div key={index}>
-                        <p>{item.content}</p>
-                    </div>
-                );
-            })}
-
-            {messages.filter((i) => i.id !== "1").length > 0 && <Link href={`/stories/jungle/${levelId}/capture`}>Take a picture</Link>}
+            {currentLevelAIMessage && <Link href={`/stories/jungle/${levelId}/capture`}>Take a picture</Link>}
         </div>
     );
 }
