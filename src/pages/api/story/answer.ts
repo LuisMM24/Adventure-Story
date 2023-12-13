@@ -27,3 +27,11 @@ export default async function handler(
 
   return res.status(200).json(response.choices[0].message.content);
 }
+
+export const config = {
+  api: {
+    bodyParser: {
+      sizeLimit: "10mb",
+    },
+  },
+};
