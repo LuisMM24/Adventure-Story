@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 
 import localFont from "next/font/local";
 import { Poppins, Manrope } from "next/font/google";
+import { UserProvider } from "@/context/userReducer";
 
 const digitalt = localFont({
   src: "../fonts/Digitalt.ttf",
@@ -15,16 +16,17 @@ const poppins = Poppins({
 });
 const manrope = Manrope({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
   variable: "--font-manrope",
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main
-      className={`${poppins.variable} ${digitalt.variable} ${manrope.variable}`}
-    >
-      <Component {...pageProps} />
-    </main>
+    <UserProvider>
+      <main
+        className={`${poppins.variable} ${digitalt.variable} ${manrope.variable}`}
+      >
+        <Component {...pageProps} />
+      </main>
+    </UserProvider>
   );
 }
