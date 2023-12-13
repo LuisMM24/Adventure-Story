@@ -7,14 +7,14 @@ const initialState: UserType = {
     name: "Loading...",
     jungleStory: {
         levels: [
-            { id: 1, message: null, answer: null, success: false },
-            { id: 2, message: null, answer: null, success: false },
-            { id: 3, message: null, answer: null, success: false },
-            { id: 4, message: null, answer: null, success: false },
-            { id: 5, message: null, answer: null, success: false },
-            { id: 6, message: null, answer: null, success: false },
-            { id: 7, message: null, answer: null, success: false },
-            { id: 8, message: null, answer: null, success: false },
+            { id: 1, aiMessage: null, answerMessage: null, success: false },
+            { id: 2, aiMessage: null, answerMessage: null, success: false },
+            { id: 3, aiMessage: null, answerMessage: null, success: false },
+            { id: 4, aiMessage: null, answerMessage: null, success: false },
+            { id: 5, aiMessage: null, answerMessage: null, success: false },
+            { id: 6, aiMessage: null, answerMessage: null, success: false },
+            { id: 7, aiMessage: null, answerMessage: null, success: false },
+            { id: 8, aiMessage: null, answerMessage: null, success: false },
         ],
     },
 };
@@ -28,7 +28,6 @@ type UserProviderProps = {
 const userReducer = (state: UserType, action: UserReducerAction): UserType => {
     switch (action.type) {
         case "SET_USER":
-            console.log("Set user: " + JSON.stringify(action.userData, null, 2));
             localStorage.setItem(userDataLocalStorageKey, JSON.stringify(action.userData));
             return action.userData;
         default:

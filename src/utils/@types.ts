@@ -3,7 +3,7 @@ import { Message } from "ai/react";
 export type UserType = {
     name: string;
     jungleStory: {
-        levels: { id: number; message: Message | null; answer: string | null; success: boolean }[];
+        levels: { id: number; aiMessage: Message | null; answerMessage: Message | null; success: boolean }[];
     };
 };
 

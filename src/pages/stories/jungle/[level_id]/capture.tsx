@@ -2,6 +2,7 @@ import ImageUploadField from "@/components/ImageUploadField";
 import { useUser } from "@/context/userReducer";
 import { AxiosService } from "@/utils/axios";
 import { ReaderService } from "@/utils/reader";
+import { Message } from "ai";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -43,10 +44,15 @@ function Capture(props: Props) {
                             const levelAnswer: string = response.data;
 
                             // STEP 2: Save level answer to user state
+                            const answerMessage: Message = {
+                                id: `${currentLevel?.id}-answer`,
+                                role: "user",
+                                content: `The solution to the last challenge is: ${levelAnswer}`,
+                            };
                             const updatedLevels = [
                                 ...user.jungleStory.levels.filter((i) => i.id !== levelId),
-                                { id: levelId, message: currentLevel?.message ?? null, answer: levelAnswer, success: true },
-                            ];
+                                { id: levelId, aiMessage: currentLevel?.aiMessage ?? null, answerMessage: answerMessage, success: true },
+                            ].sort((a, b) => a.id - b.id);
 
                             dispatch({ type: "SET_USER", userData: { name: user.name, jungleStory: { levels: updatedLevels } } });
 
