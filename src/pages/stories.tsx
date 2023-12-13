@@ -17,11 +17,11 @@ const storyNames: { name: string; imageClassName: string }[] = [
 function Stories(props: Props) {
   return (
     <ContentContainer parentClassName="bg-menu bg-cover bg-center">
-      <div className="flex flex-col justify-center gap-[50px] h-full">
-        <div className="font-Digitalt text-title text-center text-white line-clamp-2 font-medium letter-spacing tracking-[3.84px] leading-[77px] text-shadow-black-opacity">
-          Choose your adventure
-        </div>
-        <div className="flex justify-between items-center gap-6 max-sm:p-6 overflow-x-scroll scrollbar-hide">
+      <div className="font-Digitalt text-title text-center text-white line-clamp-2 font-medium letter-spacing tracking-[3.84px] leading-[77px] text-shadow-black-opacity">
+        Choose your adventure
+      </div>
+      <div className="overflow-hidden w-screen pl-4">
+        <div className="flex items-start justify-between gap-6 max-sm:p-6 overflow-x-scroll scrollbar-hide">
           {storyNames.map((story, index) => {
             const storyUrl =
               story.name === "The Quest for El Dorado" ? "/stories/jungle" : "";
