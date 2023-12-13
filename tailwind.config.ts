@@ -40,6 +40,18 @@ const config: Config = {
         button:
           "linear-gradient(230deg, rgba(103,235,0,1) 50%, rgba(166,242,8,1) 50%)",
         forest: "url('../assets/images/forest.png')",
+        menu: "url('../assets/images/menu.png')",
+        temple:
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/temple.png')",
+        boat: "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/boat.png')",
+        "wild-west":
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/wild-west.png')",
+        "wild-space":
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/wild-space.png')",
+        village:
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/village.png')",
+        viking:
+          "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/viking.png')",
       },
     },
   },
