@@ -41,3 +41,10 @@ a {
     2px 0px 0px rgb(247, 172, 30), 0px 2px 0px rgb(247, 172, 30),
     -2px 0px 0px rgb(247, 172, 30), 0px -2px 0px rgb(247, 172, 30);
 }
+
+.text-shadow-yellow {
+  text-shadow: 3px 3px 0px rgb(164, 159, 83), 3px -3px 0px rgb(164, 159, 83),
+    -3px 3px 0px rgb(164, 159, 83), -3px -3px 0px rgb(164, 159, 83),
+    3px 0px 0px rgb(164, 159, 83), 0px 3px 0px rgb(164, 159, 83),
+    -3px 0px 0px rgb(164, 159, 83), 0px -3px 0px rgb(164, 159, 83);
+}
