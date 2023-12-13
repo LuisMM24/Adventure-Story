@@ -5,6 +5,7 @@ import ElDoradoMapSVG from "@/assets/images/story-levels/el-dorado-map.svg";
 
 import { Level } from "@/components/Level";
 import { LevelCategoryEnum } from "@/components/LevelCategory";
+import Image from "next/image";
 
 type Props = {};
 
@@ -32,8 +33,8 @@ function Jungle(props: Props) {
       parentClassName="bg-blurry-temple bg-cover"
     >
       <ElDoradoTitleSVG />
-      <div className="relative flex justify-center items-center max-w-[100%] max-h-[100%]">
-        <ElDoradoMapSVG />
+      <div className="relative flex justify-center items-center">
+        <ElDoradoMapSVG className="w-[90vw]" />
         {levels.map((level, index) => {
           return <Level key={index} {...level} />;
         })}
