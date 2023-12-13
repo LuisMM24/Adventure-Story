@@ -35,6 +35,7 @@ const config: Config = {
         title: "96px",
         headline: "32px",
         storyTitle: "36px",
+        level: "48px",
       },
       backgroundImage: {
         button:
@@ -43,6 +44,7 @@ const config: Config = {
         menu: "url('../assets/images/menu.png')",
         temple:
           "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/temple.png')",
+        "blurry-temple": "url('../assets/images/blurry-temple.png')",
         boat: "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/boat.png')",
         "wild-west":
           "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/wild-west.png')",
