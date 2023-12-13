@@ -13,7 +13,7 @@ export const useHandleImageFile = () => {
               const fileData = event.target.result;
 
               const response = await AxiosService({
-                endpoint: "chat/image",
+                endpoint: "story/answer",
                 data: JSON.stringify(fileData),
                 method: "post",
               });
