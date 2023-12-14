@@ -68,8 +68,7 @@ function Chat(props: Props) {
             <p>Level ID is {levelId}</p>
 
             <p>{currentLevelAIMessage ? currentLevelAIMessage.content : messages.length > 0 && messages[messages.length - 1].content}</p>
-
-            {currentLevelAIMessage && <Link href={`/stories/jungle/${levelId}/capture`}>Take a picture</Link>}
+            {currentLevelAIMessage && !currentLevel.answerMessage && <Link href={`/stories/jungle/${levelId}/capture`}>Take a picture</Link>}
         </div>
     );
 }
