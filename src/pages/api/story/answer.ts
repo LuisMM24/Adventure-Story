@@ -13,7 +13,7 @@ export default async function handler(
       {
         role: "user",
         content: [
-          { type: "text", text: "What does this lego build show in one word?" },
+          { type: "text", text: "What does this lego build show in two word?" },
           {
             type: "image_url",
             image_url: {
