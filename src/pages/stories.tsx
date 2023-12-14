@@ -1,7 +1,8 @@
 import { Button } from "@/components/Button";
 import ContentContainer from "@/components/ContentContainer";
+import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 type Props = {};
 
@@ -14,7 +15,15 @@ const storyNames: { name: string; imageClassName: string }[] = [
   { name: "hiking Viking adventure", imageClassName: "bg-viking" },
 ];
 
+const audioUrl = "../audio/intro.mp3";
+
 function Stories(props: Props) {
+  const backgroundAudioContext = useBackgroundAudioContext();
+
+  useEffect(() => {
+    backgroundAudioContext.dispatch({ type: "SET_AUDIO", url: audioUrl });
+  }, []);
+
   return (
     <ContentContainer parentClassName="bg-menu bg-cover bg-center">
       <div className="font-Digitalt text-title text-center text-white line-clamp-2 font-medium letter-spacing tracking-[3.84px] leading-[77px] text-shadow-black-opacity">

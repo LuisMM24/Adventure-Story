@@ -4,6 +4,7 @@ import type { AppProps } from "next/app";
 import localFont from "next/font/local";
 import { Poppins, Manrope } from "next/font/google";
 import { UserProvider } from "@/context/userReducer";
+import { BackgroundAudioProvider } from "@/context/backgroundAudioReducer";
 
 const digitalt = localFont({
   src: "../fonts/Digitalt.ttf",
@@ -21,12 +22,14 @@ const manrope = Manrope({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <UserProvider>
-      <main
-        className={`${poppins.variable} ${digitalt.variable} ${manrope.variable}`}
-      >
-        <Component {...pageProps} />
-      </main>
-    </UserProvider>
+    <BackgroundAudioProvider>
+      <UserProvider>
+        <main
+          className={`${poppins.variable} ${digitalt.variable} ${manrope.variable}`}
+        >
+          <Component {...pageProps} />
+        </main>
+      </UserProvider>
+    </BackgroundAudioProvider>
   );
 }

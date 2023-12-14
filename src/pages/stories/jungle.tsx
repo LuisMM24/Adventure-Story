@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ContentContainer from "@/components/ContentContainer";
 import ElDoradoTitleSVG from "@/assets/images/el-dorado-title.svg";
 import ElDoradoMapSVG from "@/assets/images/story-levels/el-dorado-map.svg";
 
 import { Level } from "@/components/Level";
 import { LevelCategoryEnum } from "@/components/LevelCategory";
-import Image from "next/image";
+import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
 
 type Props = {};
+
+const audioUrl = "../audio/el-dorado.mp3";
 
 const levels: Level[] = [
   {
@@ -27,6 +29,12 @@ const levels: Level[] = [
 ];
 
 function Jungle(props: Props) {
+  const backgroundAudioContext = useBackgroundAudioContext();
+
+  useEffect(() => {
+    backgroundAudioContext.dispatch({ type: "SET_AUDIO", url: audioUrl });
+  }, []);
+
   return (
     <ContentContainer
       gapSpacing="gap-[50px]"
