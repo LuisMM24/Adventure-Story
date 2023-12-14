@@ -4,7 +4,7 @@ import { AxiosService } from "@/utils/axios";
 import { ReaderService } from "@/utils/reader";
 import { Message } from "ai";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 import Compressor from "compressorjs";
 
 type Props = {};
@@ -16,12 +16,16 @@ function Capture(props: Props) {
     const { user, dispatch } = useUser();
     const currentLevel = user.jungleStory.levels.find((i) => i.id === levelId);
 
+    const [statusMessage, setStatusMessage] = useState<string>("");
+
     return (
         <div>
             <h2>Take a photo of your idea!</h2>
             <button>Capture</button>
 
             <ImageUploadField handleSubmit={handleImageSubmit} />
+
+            <p>{statusMessage}</p>
         </div>
     );
 
@@ -64,6 +68,8 @@ function Capture(props: Props) {
                                     dispatch({ type: "SET_USER", userData: { name: user.name, jungleStory: { levels: updatedLevels } } });
 
                                     console.log(`Answer for level ${levelId} saved: ${levelAnswer}`);
+
+                                    setStatusMessage(`Answer for level ${levelId} saved: ${levelAnswer}`);
                                 }
                             },
                         });
