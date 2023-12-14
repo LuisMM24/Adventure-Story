@@ -18,15 +18,15 @@ function Completed({}: Props) {
     ?.id;
 
   return (
-    <ContentContainer>
-      <StoryBox className="flex flex-col gap-8">
+    <ContentContainer parentClassName="bg-el-dorado-level-background bg-cover bg-center">
+      <StoryBox>
         <p className="font-Digitalt text-4xl">COMPLETED</p>
         {nextLevel && (
-          <Link href={`/stories/jungle/${nextLevel}`}>
+          <Link className="mt-8" href={`/stories/jungle/${nextLevel}`}>
             <Button>Next chapter</Button>
           </Link>
         )}
-        <Link href="/stories/jungle">
+        <Link className="mt-8" href="/stories/jungle">
           <Button>Go back to map</Button>
         </Link>
       </StoryBox>

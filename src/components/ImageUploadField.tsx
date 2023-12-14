@@ -19,7 +19,6 @@ function ImageUploadField(props: Props) {
         name="file"
         accept="image/*"
         onChange={props.handleSubmit}
-        style={{ visibility: "hidden" }}
         className="hidden"
       />
     </>

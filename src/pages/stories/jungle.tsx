@@ -30,7 +30,7 @@ const levels: Omit<Level, "playable">[] = [
 ];
 
 function Jungle(props: Props) {
-  const { user, dispatch } = useUser();
+  const { user } = useUser();
   const backgroundAudioContext = useBackgroundAudioContext();
 
   useEffect(() => {

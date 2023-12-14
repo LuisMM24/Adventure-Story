@@ -6,7 +6,6 @@ import { Message, useChat } from "ai/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Capture from "../../../components/Capture";
-import { Button } from "@/components/Button";
 
 type Props = {};
 
@@ -85,15 +84,14 @@ function Chat(props: Props) {
         }
       }
     }
-
-    return () => {
-      // Cleanup logic here
-    };
   }, [levelId]);
 
   return (
-    <ContentContainer parentClassName="bg-el-dorado-level-background bg-cover">
-      <StoryBox className="max-h-[800] max-w-[900px]">
+    <ContentContainer
+      position={file ? "center" : "bottom"}
+      parentClassName="bg-el-dorado-level-background bg-cover"
+    >
+      <StoryBox className="mb-4 h-min min-h-[350px] w-full max-w-[1200px]">
         {file ? (
           <Capture file={file} />
         ) : (
