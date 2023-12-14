@@ -13,8 +13,6 @@ const initialState: UserType = {
             { id: 4, aiMessage: null, answerMessage: null, success: false },
             { id: 5, aiMessage: null, answerMessage: null, success: false },
             { id: 6, aiMessage: null, answerMessage: null, success: false },
-            { id: 7, aiMessage: null, answerMessage: null, success: false },
-            { id: 8, aiMessage: null, answerMessage: null, success: false },
         ],
     },
 };
