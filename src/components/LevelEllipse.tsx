@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import LevelEllipseSVG from "@/assets/images/level-ellipse.svg";
@@ -8,6 +7,7 @@ export type Level = {
   position: string;
   level: number;
   type: LevelCategoryEnum;
+  playable: boolean;
 };
 
 type Props = Level;
@@ -15,15 +15,15 @@ export const LevelEllipse = (props: Props) => {
   return (
     <div className={`absolute ${props.position}`}>
       <Link
-        className=" flex justify-center items-center relative"
+        aria-disabled={!props.playable}
+        className={` relative flex items-center justify-center  ${
+          !props.playable && "pointer-events-none cursor-not-allowed"
+        }`}
         href={`/stories/jungle/${props.level}`}
       >
         <LevelEllipseSVG />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-shadow-yellow font-medium font-Digitalt text-level">
+        <div className="text-shadow-yellow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform font-Digitalt text-level font-medium text-white">
           {props.level}
-        </div>
-        <div className="absolute bottom-[-15%] right-[-5%]">
-          <LevelCategory type={props.type} />
         </div>
       </Link>
     </div>

@@ -103,7 +103,7 @@ function Chat(props: Props) {
                 ? currentLevelAIMessage.content
                 : messages.length > 0 && messages[messages.length - 1].content}
             </p>
-            {currentLevelAIMessage && (
+            {currentLevelAIMessage && !currentLevel.answerMessage && (
               <div className="mt-8 flex w-full items-center justify-center">
                 <ImageUploadField handleSubmit={handleImageSubmit} />
               </div>

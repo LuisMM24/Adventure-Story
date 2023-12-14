@@ -6,12 +6,13 @@ import ElDoradoMapSVG from "@/assets/images/story-levels/el-dorado-map.svg";
 import { Level, LevelEllipse } from "@/components/LevelEllipse";
 import { LevelCategoryEnum } from "@/components/LevelCategory";
 import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
+import { useUser } from "@/context/userReducer";
 
 type Props = {};
 
 const audioUrl = "../audio/el-dorado.mp3";
 
-const levels: Level[] = [
+const levels: Omit<Level, "playable">[] = [
   {
     position: "top-[31%] left-[-2%]",
     level: 1,
@@ -29,6 +30,7 @@ const levels: Level[] = [
 ];
 
 function Jungle(props: Props) {
+  const { user, dispatch } = useUser();
   const backgroundAudioContext = useBackgroundAudioContext();
 
   useEffect(() => {
@@ -41,10 +43,16 @@ function Jungle(props: Props) {
       parentClassName="bg-blurry-temple bg-cover"
     >
       <ElDoradoTitleSVG />
-      <div className="relative flex justify-center items-center">
+      <div className="relative flex items-center justify-center">
         <ElDoradoMapSVG className="w-[80vw]" />
         {levels.map((level, index) => {
-          return <LevelEllipse key={index} {...level} />;
+          const previousLevelData = user.jungleStory.levels.find(
+            (i) => i.id === level.level - 1,
+          );
+          const isPlayable =
+            previousLevelData?.success || level.level === 1 ? true : false;
+
+          return <LevelEllipse key={index} playable={isPlayable} {...level} />;
         })}
       </div>
     </ContentContainer>
