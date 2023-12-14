@@ -32,7 +32,7 @@ function Capture(props: Props) {
             if (file) {
                 // STEP 2: Compress the file
                 new Compressor(file, {
-                    quality: 0.6,
+                    quality: 0.2,
                     convertSize: 5,
                     success(compressedFile) {
                         console.log("Compressed from", file.size, "to", compressedFile.size);
