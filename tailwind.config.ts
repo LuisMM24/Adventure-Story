@@ -23,10 +23,6 @@ const config: Config = {
         button: "0px 2px 0px 0px rgba(0, 0, 0, 0.15)",
         "inner-button": "0px 6px 0px 0px #4EC307",
       },
-      width: {
-        button: "92px",
-        "inner-button": "86px",
-      },
       height: {
         button: "48px",
         "inner-button": "36px",
