@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import LevelEllipse from "@/assets/images/level-ellipse.svg";
+import LevelEllipseSVG from "@/assets/images/level-ellipse.svg";
 import { LevelCategory, LevelCategoryEnum } from "./LevelCategory";
 
 export type Level = {
@@ -11,14 +11,14 @@ export type Level = {
 };
 
 type Props = Level;
-export const Level = (props: Props) => {
+export const LevelEllipse = (props: Props) => {
   return (
     <div className={`absolute ${props.position}`}>
       <Link
         className=" flex justify-center items-center relative"
         href={`/stories/jungle/${props.level}`}
       >
-        <LevelEllipse />
+        <LevelEllipseSVG />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-shadow-yellow font-medium font-Digitalt text-level">
           {props.level}
         </div>

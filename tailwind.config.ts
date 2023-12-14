@@ -22,6 +22,7 @@ const config: Config = {
       boxShadow: {
         button: "0px 2px 0px 0px rgba(0, 0, 0, 0.15)",
         "inner-button": "0px 6px 0px 0px #4EC307",
+        "inner-box": "0px 6px 0px 0px #C5AB6F",
       },
       height: {
         button: "48px",
@@ -37,6 +38,8 @@ const config: Config = {
         button:
           "linear-gradient(230deg, rgba(103,235,0,1) 50%, rgba(166,242,8,1) 50%)",
         forest: "url('../assets/images/forest.png')",
+        "el-dorado-level-background":
+          "url('../assets/images/story-levels/el-dorado-level-background.jpeg')",
         menu: "url('../assets/images/menu.png')",
         temple:
           "linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.30) 75.52%), url('../assets/images/temple.png')",

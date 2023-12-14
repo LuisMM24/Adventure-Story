@@ -3,7 +3,7 @@ import ContentContainer from "@/components/ContentContainer";
 import ElDoradoTitleSVG from "@/assets/images/el-dorado-title.svg";
 import ElDoradoMapSVG from "@/assets/images/story-levels/el-dorado-map.svg";
 
-import { Level } from "@/components/Level";
+import { Level, LevelEllipse } from "@/components/LevelEllipse";
 import { LevelCategoryEnum } from "@/components/LevelCategory";
 import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
 
@@ -44,7 +44,7 @@ function Jungle(props: Props) {
       <div className="relative flex justify-center items-center">
         <ElDoradoMapSVG className="w-[80vw]" />
         {levels.map((level, index) => {
-          return <Level key={index} {...level} />;
+          return <LevelEllipse key={index} {...level} />;
         })}
       </div>
     </ContentContainer>
