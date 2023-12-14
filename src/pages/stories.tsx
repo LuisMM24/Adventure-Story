@@ -26,20 +26,20 @@ function Stories(props: Props) {
 
   return (
     <ContentContainer parentClassName="bg-menu bg-cover bg-center">
-      <div className="font-Digitalt text-title text-center text-white line-clamp-2 font-medium letter-spacing tracking-[3.84px] leading-[77px] text-shadow-black-opacity">
+      <div className="letter-spacing text-shadow-black-opacity line-clamp-2 text-center font-Digitalt text-title font-medium leading-[77px] tracking-[3.84px] text-white">
         Choose your adventure
       </div>
-      <div className="overflow-hidden w-screen pl-4">
-        <div className="flex items-start justify-between gap-6 max-sm:p-6 overflow-x-scroll scrollbar-hide">
+      <div className="w-screen overflow-hidden pl-4">
+        <div className="scrollbar-hide flex items-start justify-between gap-6 overflow-x-scroll max-sm:p-6">
           {storyNames.map((story, index) => {
             const storyUrl =
               story.name === "The Quest for El Dorado" ? "/stories/jungle" : "";
             return (
               <div
                 key={index}
-                className={`pb-[24px] bg-lightGray h-[328px] rounded-[40px] aspect-square flex flex-col justify-end items-center font-medium text-4xl border-4 border-white text-white ${story.imageClassName} bg-cover bg-center`}
+                className={`flex aspect-square h-[328px] flex-col items-center justify-end rounded-[40px] border-4 border-white bg-lightGray pb-[24px] text-4xl font-medium text-white ${story.imageClassName} bg-cover bg-center`}
               >
-                <div className="font-Digitalt text-center">{story.name}</div>
+                <div className="text-center font-Digitalt">{story.name}</div>
                 <Link key={index} href={storyUrl}>
                   <Button>Start</Button>
                 </Link>

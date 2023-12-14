@@ -20,7 +20,7 @@ export const Button = (props: PropsWithChildren<Props>) => {
   return (
     <button
       onClick={handleClick}
-      className="relative h-button w-full max-w-full rounded-[8px] border-2 border-white bg-white bg-button px-4 text-center text-xl  text-white shadow-button before:absolute before:bottom-[6px] before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:transform before:rounded-[6px] before:shadow-inner-button"
+      className="text-shadow-button relative flex h-button w-fit items-center justify-center rounded-[8px] border-2 border-white bg-button px-4 text-headline font-medium text-white shadow-button before:absolute before:bottom-[6px] before:left-1/2 before:h-full before:w-full before:-translate-x-1/2 before:transform before:rounded-[6px] before:shadow-inner-button"
     >
       <div className="mb-1 font-Digitalt">{props.children}</div>
     </button>
