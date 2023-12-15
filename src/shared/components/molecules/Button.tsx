@@ -1,4 +1,4 @@
-import { useAudio } from "@/hooks/useAudio";
+import { useAudio } from "@/hooks/common/useAudio";
 import React, { PropsWithChildren } from "react";
 const audioUrl = "/audio/button-pop.mp3";
 

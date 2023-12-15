@@ -1,11 +1,11 @@
-import ContentContainer from "@/components/ContentContainer";
-import ImageUploadField from "@/components/ImageUploadField";
-import { StoryBox } from "@/components/StoryBox";
+import ContentContainer from "@/shared/components/organisms/ContentContainer";
+import ImageUploadField from "@/features/story/presentation/components/ImageUploadField";
+import { StoryBox } from "@/features/story/presentation/components/StoryBox";
 import { useUser } from "@/context/userReducer";
 import { Message, useChat } from "ai/react";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Capture from "../../../components/Capture";
+import Capture from "../../../features/story/presentation/components/Capture";
 
 type Props = {};
 

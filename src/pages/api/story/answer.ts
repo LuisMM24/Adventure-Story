@@ -1,19 +1,21 @@
-import { openAI } from "@/utils/openai";
+import { OpenAIModelsEnum } from "@/features/openai/domain/openai";
+import { imageInterpreterSetupMessages } from "@/features/story/domain/ImageInterpreter";
+import { openAI } from "@/features/openai/domain/openai";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   const base64Image = req.body;
 
   const response = await openAI.chat.completions.create({
-    model: "gpt-4-vision-preview",
+    model: OpenAIModelsEnum.ImageInterpreter,
     messages: [
       {
         role: "user",
         content: [
-          { type: "text", text: "What does this lego build show in two word?" },
+          ...imageInterpreterSetupMessages,
           {
             type: "image_url",
             image_url: {

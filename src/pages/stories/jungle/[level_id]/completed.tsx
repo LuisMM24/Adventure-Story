@@ -1,6 +1,6 @@
-import { Button } from "@/components/Button";
-import ContentContainer from "@/components/ContentContainer";
-import { StoryBox } from "@/components/StoryBox";
+import { Button } from "@/shared/components/molecules/Button";
+import ContentContainer from "@/shared/components/organisms/ContentContainer";
+import { StoryBox } from "@/features/story/presentation/components/StoryBox";
 import { useUser } from "@/context/userReducer";
 import Link from "next/link";
 import { useRouter } from "next/router";

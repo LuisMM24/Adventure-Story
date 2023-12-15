@@ -1,6 +1,4 @@
 import React, { PropsWithChildren } from "react";
-import ArrowLeft from "@/assets/images/arrow-left.svg";
-import ArrowRight from "@/assets/images/arrow-right.svg";
 
 type Props = {
   onClick?: () => void;

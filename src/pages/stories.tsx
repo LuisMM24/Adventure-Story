@@ -1,5 +1,5 @@
-import { Button } from "@/components/Button";
-import ContentContainer from "@/components/ContentContainer";
+import { Button } from "@/shared/components/molecules/Button";
+import ContentContainer from "@/shared/components/organisms/ContentContainer";
 import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
 import Link from "next/link";
 import React, { useEffect } from "react";
