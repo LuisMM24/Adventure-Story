@@ -1,6 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import LevelEllipseSVG from "@/assets/images/level-ellipse.svg";
+import LevelEllipseSuccessSVG from "@/assets/images/level-ellipse-success.svg";
+import Star from "@/assets/images/star.svg";
 import { LevelCategory, LevelCategoryEnum } from "./LevelCategory";
 
 export type Level = {
@@ -8,6 +10,7 @@ export type Level = {
   level: number;
   type: LevelCategoryEnum;
   playable: boolean;
+  completed?: boolean;
 };
 
 type Props = Level;
@@ -21,9 +24,12 @@ export const LevelEllipse = (props: Props) => {
         }`}
         href={`/stories/jungle/${props.level}`}
       >
-        <LevelEllipseSVG />
+        {props.completed ? <LevelEllipseSuccessSVG /> : <LevelEllipseSVG />}
         <div className="text-shadow-yellow absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform font-Digitalt text-level font-medium text-white">
-          {props.level}
+          {props.completed ? <Star /> : props.level}
+        </div>
+        <div className="absolute bottom-[-15%] right-[-5%]">
+          <LevelCategory type={props.type} />
         </div>
       </Link>
     </div>
