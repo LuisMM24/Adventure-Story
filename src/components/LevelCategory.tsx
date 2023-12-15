@@ -1,5 +1,5 @@
 import React from "react";
-import LevelCategoryEllipseSVG from "@/assets/images/level-types/ellipse.svg";
+import LevelCategoryEllipseSVG from "@/assets/images/ellipse-big.svg";
 import BuildSVG from "@/assets/images/level-types/build.svg";
 import QuestionSVG from "@/assets/images/level-types/question.svg";
 import BookSVG from "@/assets/images/level-types/book.svg";
@@ -37,7 +37,7 @@ export const LevelCategory = (props: Props) => {
   return (
     <div className="relative">
       <LevelCategoryEllipseSVG color={selectedCategory.ellipseColor} />
-      <selectedCategory.icon className="absolute top-2 left-1/2 transform -translate-x-1/2" />
+      <selectedCategory.icon className="absolute left-1/2 top-2 -translate-x-1/2 transform" />
     </div>
   );
 };

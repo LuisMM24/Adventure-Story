@@ -22,6 +22,10 @@ const config: Config = {
       boxShadow: {
         button: "0px 2px 0px 0px rgba(0, 0, 0, 0.15)",
         "inner-button": "0px 6px 0px 0px #4EC307",
+        "inner-rounded-button-primary": "0px 6px 0px 0px #43D309",
+        "inner-rounded-button-secondary": "0px 6px 0px 0px #A17CFF",
+        "inner-rounded-button-disabled": "0px 6px 0px 0px #5A5A5A",
+        "inner-rounded-button-danger": "0px 6px 0px 0px #CC0F0",
         "inner-box": "0px 6px 0px 0px #C5AB6F",
       },
       height: {
@@ -35,9 +39,11 @@ const config: Config = {
         level: "48px",
       },
       backgroundImage: {
-        button:
+        "primary-button":
           "linear-gradient(230deg, rgba(103,235,0,1) 50%, rgba(166,242,8,1) 50%)",
-        forest: "url('../assets/images/forest.png')",
+        "secondary-button":
+          "linear-gradient(230deg, rgba(103,235,0,1) 50%, rgba(166,242,8,1) 50%)",
+        "main-background": "url('../assets/images/main-background.png')",
         "el-dorado-level-background":
           "url('../assets/images/story-levels/el-dorado-level-background.jpeg')",
         menu: "url('../assets/images/menu.png')",

@@ -5,7 +5,10 @@ import LogoSVG from "@/assets/images/Logo.svg";
 
 export default function Home() {
   return (
-    <ContentContainer parentClassName="bg-forest bg-cover bg-center">
+    <ContentContainer
+      gapSpacing="gap-10"
+      parentClassName="bg-main-background bg-cover bg-center"
+    >
       <LogoSVG />
       <Link href="/stories">
         <Button> Start</Button>

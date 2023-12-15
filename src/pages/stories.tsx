@@ -3,6 +3,7 @@ import ContentContainer from "@/components/ContentContainer";
 import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import Ellipse from "@/assets/images/ellipse-small.svg";
 
 type Props = {};
 
@@ -25,7 +26,10 @@ function Stories(props: Props) {
   }, []);
 
   return (
-    <ContentContainer parentClassName="bg-menu bg-cover bg-center">
+    <ContentContainer
+      gapSpacing="gap-20"
+      parentClassName="bg-menu bg-cover bg-center"
+    >
       <div className="letter-spacing text-shadow-black-opacity line-clamp-2 text-center font-Digitalt text-title font-medium leading-[77px] tracking-[3.84px] text-white">
         Choose your adventure
       </div>
@@ -46,6 +50,17 @@ function Stories(props: Props) {
               </div>
             );
           })}
+        </div>
+        <div className="mt-8 flex gap-3">
+          {storyNames.map((story) => (
+            <Ellipse
+              width="24"
+              height="28"
+              viewBox="0 0 24 28"
+              key={story.name}
+              color={story.name === storyNames[0].name ? "#67EB00" : "#FDF36D"}
+            />
+          ))}
         </div>
       </div>
     </ContentContainer>

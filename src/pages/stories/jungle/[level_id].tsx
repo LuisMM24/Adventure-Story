@@ -49,7 +49,6 @@ function Chat(props: Props) {
 
   const handleImageSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
-      console.log("set image");
       setFile(event.target.files[0]);
     }
   };
@@ -91,7 +90,7 @@ function Chat(props: Props) {
       position={file ? "center" : "bottom"}
       parentClassName="bg-el-dorado-level-background bg-cover"
     >
-      <StoryBox className="mb-4 h-min min-h-[350px] w-full max-w-[1200px]">
+      <StoryBox className="mb-4 h-min min-h-[350px] w-full max-w-[800px]">
         {file ? (
           <Capture file={file} />
         ) : (

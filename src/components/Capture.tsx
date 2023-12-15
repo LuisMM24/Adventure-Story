@@ -6,11 +6,13 @@ import { Message } from "ai";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Compressor from "compressorjs";
-import ContentContainer from "@/components/ContentContainer";
+
+import CheckSVG from "@/assets/images/check.svg";
 import Image from "next/image";
 import { Loading } from "@/components/Loading";
 import { Button } from "@/components/Button";
 import Link from "next/link";
+import { RoundedButton } from "./RoundedButton";
 
 type Props = {
   file: File;
@@ -32,13 +34,12 @@ function Capture(props: Props) {
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     if (event.target.files && event.target.files[0]) {
-      console.log("set image");
       setFile(event.target.files[0]);
     }
   };
 
   useEffect(() => {
-    new Compressor(props.file, {
+    new Compressor(file, {
       quality: 0.2,
       convertSize: 5,
       success(compressedFile) {
@@ -59,7 +60,7 @@ function Capture(props: Props) {
         });
       },
     });
-  }, [props.file]);
+  }, [file, props.file]);
 
   return (
     <div className="flex flex-col items-center gap-8 p-8">
@@ -77,9 +78,11 @@ function Capture(props: Props) {
       )}
 
       {!statusMessage && (
-        <div className="flex w-full justify-between">
-          <ImageUploadField handleSubmit={handleSubmitTakePicture} />
-          <Button onClick={handleImageSubmit}>Save</Button>
+        <div className="flex w-full justify-center gap-8">
+          <ImageUploadField handleSubmit={handleSubmitTakePicture} rounded />
+          <RoundedButton onClick={handleImageSubmit}>
+            <CheckSVG />
+          </RoundedButton>
         </div>
       )}
 
