@@ -69,12 +69,19 @@ function Chat(props: Props) {
         case 2:
         case 3:
         case 4:
-        case 5:
-        case 6: {
+        case 5: {
           if (lastLevel?.answerMessage) {
             append(lastLevel?.answerMessage);
           }
 
+          break;
+        }
+        case 6: {
+          append({
+            id: `${levelId}`,
+            role: "user",
+            content: `${lastLevel?.answerMessage?.content} The last challenge was the final one. Do not pose another challenge. Just finish the story now!`,
+          });
           break;
         }
         default: {
@@ -100,11 +107,13 @@ function Chat(props: Props) {
                 ? currentLevelAIMessage.content
                 : messages.length > 0 && messages[messages.length - 1].content}
             </p>
-            {currentLevelAIMessage && !currentLevel.answerMessage && (
-              <div className="mt-8 flex w-full items-center justify-center">
-                <ImageUploadField handleSubmit={handleImageSubmit} />
-              </div>
-            )}
+            {currentLevelAIMessage &&
+              !currentLevel.answerMessage &&
+              currentLevel.id !== 6 && (
+                <div className="mt-8 flex w-full items-center justify-center">
+                  <ImageUploadField handleSubmit={handleImageSubmit} />
+                </div>
+              )}
           </>
         )}
       </StoryBox>
