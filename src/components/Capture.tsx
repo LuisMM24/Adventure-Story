@@ -78,11 +78,16 @@ function Capture(props: Props) {
       )}
 
       {!statusMessage && (
-        <div className="flex w-full justify-center gap-8">
-          <ImageUploadField handleSubmit={handleSubmitTakePicture} rounded />
-          <RoundedButton onClick={handleImageSubmit}>
-            <CheckSVG />
-          </RoundedButton>
+        <div className="flex flex-col gap-4">
+          <p className="text-shadow-white font-Poppins text-lg font-extrabold text-black">
+            What an amazing sculpture! Do you want to continue or redo?
+          </p>
+          <div className="flex w-full justify-center gap-8">
+            <ImageUploadField handleSubmit={handleSubmitTakePicture} rounded />
+            <RoundedButton onClick={handleImageSubmit}>
+              <CheckSVG />
+            </RoundedButton>
+          </div>
         </div>
       )}
 
