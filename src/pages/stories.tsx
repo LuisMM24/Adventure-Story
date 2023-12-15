@@ -3,7 +3,6 @@ import ContentContainer from "@/components/ContentContainer";
 import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
 import Link from "next/link";
 import React, { useEffect } from "react";
-import Ellipse from "@/assets/images/ellipse-small.svg";
 
 type Props = {};
 
@@ -50,17 +49,6 @@ function Stories(props: Props) {
               </div>
             );
           })}
-        </div>
-        <div className="mt-8 flex gap-3">
-          {storyNames.map((story) => (
-            <Ellipse
-              width="24"
-              height="28"
-              viewBox="0 0 24 28"
-              key={story.name}
-              color={story.name === storyNames[0].name ? "#67EB00" : "#FDF36D"}
-            />
-          ))}
         </div>
       </div>
     </ContentContainer>
