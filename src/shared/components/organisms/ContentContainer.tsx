@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { RoundedButton } from "./RoundedButton";
+import { RoundedButton } from "@/shared/components/molecules";
 import ArrowLeft from "@/assets/images/arrow-left.svg";
 import Cross from "@/assets/images/cross.svg";
 import { useRouter } from "next/router";

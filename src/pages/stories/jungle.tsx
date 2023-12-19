@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
-import ContentContainer from "@/components/ContentContainer";
+import ContentContainer from "@/shared/components/organisms/ContentContainer";
 import ElDoradoTitleSVG from "@/assets/images/el-dorado-title.svg";
 import ElDoradoMapSVG from "@/assets/images/story-levels/el-dorado-map.svg";
 
-import { Level, LevelEllipse } from "@/components/LevelEllipse";
-import { LevelCategoryEnum } from "@/components/LevelCategory";
+import {
+  Level,
+  LevelEllipse,
+} from "@/features/story/presentation/components/LevelEllipse";
+import { LevelCategoryEnum } from "@/features/story/presentation/components/LevelCategory";
 import { useBackgroundAudioContext } from "@/context/backgroundAudioReducer";
 import { useUser } from "@/context/userReducer";
 
